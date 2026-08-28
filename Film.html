@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Engine of Inequality — A Snowpiercer Review</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@500;600;700&display=swap');
+
+  :root{
+    --cream:#FBF7EC;
+    --masthead:#E9BE3F;
+    --ink:#211B14;
+    --oxblood:#7C2222;
+    --rule:#D9CFAE;
+    --muted:#5C5340;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'PT Serif', serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* Nav */
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:36px;
+    padding:22px 24px 16px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav span{opacity:.55; cursor:default;}
+  .nav .brand{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:15px;
+    letter-spacing:.02em;
+    text-transform:none;
+    opacity:1;
+    margin:0 8px;
+  }
+
+  /* Masthead / hero */
+  .masthead{
+    background:var(--masthead);
+    padding:64px 24px 56px;
+    text-align:center;
+    border-bottom:4px double var(--ink);
+  }
+  .kicker{
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--oxblood);
+    margin-bottom:18px;
+  }
+  h1.title{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:clamp(40px,7vw,84px);
+    line-height:0.98;
+    margin:0 0 22px;
+    letter-spacing:-0.01em;
+  }
+  .author{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:19px;
+    color:var(--oxblood);
+    margin:0 0 26px;
+  }
+
+  .subtitle{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:clamp(17px,2.4vw,22px);
+    max-width:680px;
+    margin:0 auto 26px;
+    line-height:1.5;
+    color:#3a3120;
+  }
+  .byline{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+  }
+  .dateline{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    color:#6b5f45;
+    margin-top:6px;
+  }
+
+  /* Hero image band */
+  .hero-frame{
+    position:relative;
+    height:min(56vw,460px);
+    overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(10,10,10,.05), rgba(10,10,10,.35)),
+      repeating-linear-gradient(115deg, #b7c4cc 0 3px, #9fb0ba 3px 6px),
+      linear-gradient(200deg,#dfe7ea,#8b9aa3 60%, #5c6a72);
+  }
+  .hero-frame::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(255,255,255,.35), transparent 40%),
+      linear-gradient(115deg, transparent 46%, rgba(20,20,20,.55) 48%, rgba(20,20,20,.55) 52%, transparent 54%);
+  }
+  .hero-caption{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    color:var(--muted);
+    text-align:center;
+    padding:14px 24px;
+    font-style:italic;
+    border-bottom:1px solid var(--rule);
+  }
+
+  /* Article */
+  .article{
+    max-width:660px;
+    margin:0 auto;
+    padding:52px 24px 100px;
+  }
+  .article p{
+    font-size:19px;
+    line-height:1.72;
+    margin:0 0 26px;
+    color:#241f16;
+  }
+  .article p.lede::first-letter{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:74px;
+    line-height:.78;
+    float:left;
+    padding:6px 10px 0 0;
+    color:var(--oxblood);
+  }
+
+  .section-label{
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--oxblood);
+    margin:52px 0 18px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .section-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--rule);
+  }
+
+  blockquote{
+    margin:38px 0;
+    padding:0 0 0 22px;
+    border-left:3px solid var(--oxblood);
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:22px;
+    line-height:1.5;
+    color:#3a3120;
+  }
+
+  .end-mark{
+    text-align:center;
+    margin:56px 0 0;
+    font-size:20px;
+    color:var(--oxblood);
+  }
+
+  footer{
+    border-top:1px solid var(--rule);
+    text-align:center;
+    padding:30px 24px 50px;
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    color:#8a7f63;
+    letter-spacing:.04em;
+  }
+
+  @media (max-width: 560px){
+    .nav{gap:16px; font-size:11px;}
+    .article p{font-size:17.5px;}
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span>Screen</span>
+    <span>Culture</span>
+    <span class="brand">The Reel Review</span>
+    <span>Interviews</span>
+    <span>Archive</span>
+  </nav>
+
+  <header class="masthead">
+    <div class="kicker">Film &nbsp;·&nbsp; Sci-Fi &nbsp;·&nbsp; Class &amp; Capital</div>
+    <h1 class="title">Engine of<br>Inequality</h1>
+    <p class="author">Carly So</p>
+    <p class="subtitle">How Bong Joon-ho turns a runaway train into a working blueprint for capitalism — and why <em>Snowpiercer</em> deserves to be watched as closely as it was built.</p>
+    <div class="byline">A Review of Snowpiercer (2013)</div>
+    <div class="dateline">Directed by Bong Joon-Ho</div>
+  </header>
+
+  <div class="hero-frame" role="img" aria-label="A train winding through a frozen, mountainous landscape"></div>
+  <div class="hero-caption">A scene from Bong Joon-Ho's film <em>Snowpiercer</em></div>
+
+  <main class="article">
+
+    <p class="lede">If there is a movie that turns spectacle into a warning, then it is the 2013 sci-fi action-thriller film <em>Snowpiercer</em> — directed by Bong Joon-Ho. If you loved his <em>Parasite</em>, you're going to love this one too — not because it's an earlier version of that story, but because it's the same director, obsessed with the same target, working at an even bigger scale. Starring Chris Evans and Song Kang-ho, the film traps the last of humanity aboard a single, continuously moving train, circling a frozen, post-apocalyptic world.</p>
+
+    <p>It is one of the best films for building tension while never letting you forget what it's actually about; every action sequence doubles as an argument. Bong's intention is never subtle — he wants you to feel the machinery of inequality, not just observe it, and he does this by making you live it rather than explaining it. In fact, <em>Snowpiercer</em> is proof that Bong was interrogating capitalism long before the world caught on: across <em>The Host</em>, <em>Snowpiercer</em>, and <em>Okja</em> — not to mention <em>Parasite</em> itself — he has returned again and again to capitalism as his subject, once bluntly summing up his own filmography: "they're all stories about capitalism." <em>Snowpiercer</em> just happens to be the version where he makes that structure literal, turning class into a physical train you can watch people ride through, car by car. This is, in my opinion, one of the smartest and most rewatchable sci-fi films of the last two decades — and if you haven't seen it, consider this your sign too.</p>
+
+    <p>Seventeen years after a failed climate experiment plunges survivors into a train, the last of humanity is trapped in a world brutally divided by class. At the back, Curtis leads the desperate and long-oppressed "Tailies" in their fight toward the front, where the mysterious engineer Wilford rules over the train. Yet with every car Curtis overcomes, he gets closer to a secret about the train that makes him question everything he believed he was fighting for.</p>
+
+    <div class="section-label">Props — Metaphors, Symbolism, Weapons</div>
+    <p>Bong's use of props and symbolism turns something as simple as a shoe into one of the film's sharpest metaphors. Early in the film, a passenger is punished for breaking the rules, and the ice-cold enforcer delivering the punishment states the film's whole thesis in a single line:</p>
+
+    <blockquote>"A shoe doesn't belong on your head, a shoe belongs on your foot."</blockquote>
+
+    <p>Not only that, but Bong does the same work through food — Tailies are rationed thin, grey protein blocks that barely pass as food, just enough to keep them alive and working, while up front, rationed luxuries like sushi — served only twice a year — still amount to more than the Tailies get in a lifetime. These details are easy to miss, yet they highlight everything about how rigid and deliberate this world is; every object on the train has been placed to keep people exactly where the system wants them. It's this kind of restraint that makes the film worth watching closely — Bong leaves bits of the metaphor scattered throughout the film for you to catch rather than spelling it out, and that respect for the audience is rare in a film this loaded with action.</p>
+
+    <div class="section-label">Mise-en-Scène</div>
+    <p>Even without a word of dialogue, Bong creates scenes that make class division impossible to miss. The tail section is cramped and suffocating, lit by cold metal and flickering, unnatural light — lighting that makes you feel like you're trapped alongside the Tailies rather than just watching them. Compare that to the front section Curtis fights toward: sunlit greenhouse cars, a gleaming sushi bar, a nightclub soaked in color, rooms that don't even look like they belong on the same train.</p>
+
+    <p>It's a visual hierarchy built into the very walls of the set — light and warmth reserved for the privileged, darkness and decay left for those below them. This contrast is what makes the film so effective as a piece of world-building; you don't need Bong to explain the class system, because you can see it in every single frame. By the time the Tailies finally break through to the front, stepping into a world so foreign that it barely feels like the same train, everything they've endured suddenly feels even crueler in hindsight — and that gut-punch is exactly why this film is worth your time.</p>
+
+    <div class="section-label">Facial Expression &amp; Gesture</div>
+    <p>Gone is the confident Chris Evans that audiences know from Marvel films — in his place is someone hollowed out by guilt and exhaustion. Even in silence, his control feels fragile, like restraint itself is the hardest battle he is fighting. It's why his rare moments of breaking down hit so hard; nothing about them feels performed, they feel inevitable — years of buried self-blame finally surfacing. Watching him, you almost forget you're looking at a superhero actor at all, you're looking at someone who is carrying the weight of every person he's failed to save, and it shows in every scene.</p>
+
+    <p>Not only him, but Song Kang-ho also delivers an outstanding performance, playing a man whose quiet, unreadable restraint makes his true motives a puzzle right up until the film needs him most. Tilda Swinton takes the opposite approach entirely — her grotesque, almost cartoonish act as the front's mouthpiece pushes the ruling class into something absurd and inhuman, a choice that sharpens Bong's satire rather than undercutting it. Together, these performances are what turn the train's class war into something you feel in your chest, not just something you understand in theory.</p>
+
+    <p>None of this is really about individual guilt or cruelty — Curtis's breakdown is what survival looks like inside a system that requires cruelty to keep running; Swinton's grotesqueness is what the ruling class looks like once you strip away its self-justifications. The acting isn't just moving: it's evidence. That's exactly why this film is worth watching closely — the performances carry just as much of Bong's argument as the train itself does.</p>
+
+    <div class="section-label">Closing Thoughts</div>
+    <p><em>Snowpiercer</em> isn't just a thriller ride through a frozen apocalypse — it's a masterclass in visual storytelling, using every prop, frame, and flicker of expression to interrogate the machinery of class oppression. Bong doesn't just show us inequality, he makes us feel its weight, from the shoe on a rebel's head to the haunted stillness of Chris Evans' eyes. It's a film that lingers long after the credits roll, leaving you to sit with uncomfortable truths about class, power, and the system we rarely question. If you're drawn to sci-fi that hides a razor-sharp critique beneath the action, <em>Snowpiercer</em> delivers on every level, thrilling to watch, even richer to unpack.</p>
+
+    <div class="end-mark">❦</div>
+  </main>
+
+  <footer>The Reel Review · Screen &amp; Culture Desk</footer>
+
+</body>
+</html>
