@@ -113,18 +113,10 @@
     position:relative;
     height:min(56vw,460px);
     overflow:hidden;
-    background:
-      linear-gradient(180deg, rgba(10,10,10,.05), rgba(10,10,10,.35)),
-      repeating-linear-gradient(115deg, #b7c4cc 0 3px, #9fb0ba 3px 6px),
-      linear-gradient(200deg,#dfe7ea,#8b9aa3 60%, #5c6a72);
-  }
-  .hero-frame::after{
-    content:"";
-    position:absolute; inset:0;
-    background:
-      radial-gradient(ellipse at 30% 20%, rgba(255,255,255,.35), transparent 40%),
-      linear-gradient(115deg, transparent 46%, rgba(20,20,20,.55) 48%, rgba(20,20,20,.55) 52%, transparent 54%);
-  }
+    width:100%;
+    object-fit:cover;
+}
+  
   .hero-caption{
     font-family:'Inter',sans-serif;
     font-size:12px;
@@ -230,8 +222,8 @@
     <div class="dateline">Directed by Bong Joon-Ho</div>
   </header>
 
-  <div class="hero-frame" role="img" aria-label="A train winding through a frozen, mountainous landscape"></div>
-  <div class="hero-caption">A scene from Bong Joon-Ho's film <em>Snowpiercer</em></div>
+
+  <img class="hero-frame" scr="https://images.amcnetworks.com/ifccenter.com/wp-content/uploads/2017/01/snowpiercer_1280x720.jpg" alt="A scene from Snowpiercer">
 
   <main class="article">
 
